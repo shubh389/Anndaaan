@@ -324,7 +324,7 @@ const Admin = () => {
             <CardContent className="p-6">
               <div className="flex items-center">
                 <div className="bg-purple-100 rounded-full p-3 mr-4">
-                  <AlertTriangle className="h-6 w-6 text-gray-600" />
+                  <AlertTriangle className="h-6 w-6 text-purple-600" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Pending Review</p>
