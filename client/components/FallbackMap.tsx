@@ -146,7 +146,7 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                         </Button>
                       </div>
                       <p className="text-sm text-gray-600 mt-1">
-                        Click anywhere on the map to open Google Maps
+                        🗺️ Click anywhere on this map image to open Google Maps
                       </p>
                     </div>
                   </div>
