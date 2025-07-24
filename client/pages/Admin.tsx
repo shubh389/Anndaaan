@@ -515,16 +515,16 @@ const Admin = () => {
                               </DropdownMenuTrigger>
                               <DropdownMenuContent>
                                 <DropdownMenuItem>
-                                  <Eye className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Eye className="mr-2 h-4 w-4" />
                                   View Details
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
-                                  <Edit className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Edit className="mr-2 h-4 w-4" />
                                   Edit
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem className="text-red-600">
-                                  <Trash2 className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Trash2 className="mr-2 h-4 w-4" />
                                   Delete
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
