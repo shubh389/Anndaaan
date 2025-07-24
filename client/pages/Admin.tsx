@@ -778,7 +778,7 @@ const Admin = () => {
                   <Card>
                     <CardContent className="flex items-center justify-center h-64">
                       <div className="text-center text-gray-500">
-                        <User className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+                        <User className="h-12 w-12 mx-auto mb-4 text-gray-600" />
                         <p>Select a user to view their profile</p>
                       </div>
                     </CardContent>
