@@ -278,7 +278,7 @@ const Admin = () => {
             <CardContent className="p-6">
               <div className="flex items-center">
                 <div className="bg-blue-100 rounded-full p-3 mr-4">
-                  <Package className="h-6 w-6 text-gray-600" />
+                  <Package className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Total Donations</p>
