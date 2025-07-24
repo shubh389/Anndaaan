@@ -764,11 +764,11 @@ const Admin = () => {
 
                       <div className="flex space-x-2">
                         <Button className="flex-1 px-3 py-1 text-sm">
-                          <Edit className="mr-2 h-4 w-4" />
+                          <Edit className="mr-2 h-4 w-4 text-gray-600" />
                           Edit
                         </Button>
                         <Button className="flex-1 border border-gray-300 bg-white hover:bg-gray-100 px-3 py-1 text-sm">
-                          <Ban className="mr-2 h-4 w-4" />
+                          <Ban className="mr-2 h-4 w-4 text-gray-600" />
                           Suspend
                         </Button>
                       </div>
