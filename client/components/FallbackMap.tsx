@@ -173,7 +173,9 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                                   .length
                               }
                             </div>
-                            <div className="text-xs text-yellow-600">Pending</div>
+                            <div className="text-xs text-yellow-600">
+                              Pending
+                            </div>
                           </div>
                           <div className="bg-blue-50 rounded-lg p-3">
                             <div className="text-2xl font-bold text-blue-700">
@@ -182,13 +184,16 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                                   .length
                               }
                             </div>
-                            <div className="text-xs text-blue-600">Assigned</div>
+                            <div className="text-xs text-blue-600">
+                              Assigned
+                            </div>
                           </div>
                           <div className="bg-orange-50 rounded-lg p-3">
                             <div className="text-2xl font-bold text-orange-700">
                               {
-                                donations.filter((d) => d.status === "in_transit")
-                                  .length
+                                donations.filter(
+                                  (d) => d.status === "in_transit",
+                                ).length
                               }
                             </div>
                             <div className="text-xs text-orange-600">
@@ -198,11 +203,14 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                           <div className="bg-green-50 rounded-lg p-3">
                             <div className="text-2xl font-bold text-green-700">
                               {
-                                donations.filter((d) => d.status === "delivered")
-                                  .length
+                                donations.filter(
+                                  (d) => d.status === "delivered",
+                                ).length
                               }
                             </div>
-                            <div className="text-xs text-green-600">Delivered</div>
+                            <div className="text-xs text-green-600">
+                              Delivered
+                            </div>
                           </div>
                         </div>
                       </div>
