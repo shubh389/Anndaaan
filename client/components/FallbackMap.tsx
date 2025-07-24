@@ -124,6 +124,73 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />
 
+                {/* Live Tracking Overlay */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Top Right - Live Status */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-green-200">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium text-green-700">Live Tracking</span>
+                      </div>
+                      <div className="text-xs text-gray-600 mt-1">
+                        Updated: {new Date().toLocaleTimeString()}
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Top Left - Quick Actions */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                      <div className="text-xs font-medium text-gray-700 mb-2">Quick Actions</div>
+                      <div className="flex flex-col space-y-1">
+                        <button className="pointer-events-auto text-xs text-blue-600 hover:text-blue-800 text-left">
+                          🔍 Find Donation
+                        </button>
+                        <button className="pointer-events-auto text-xs text-orange-600 hover:text-orange-800 text-left">
+                          📍 Track Route
+                        </button>
+                        <button className="pointer-events-auto text-xs text-green-600 hover:text-green-800 text-left">
+                          👥 Contact Volunteer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Bottom Center - Active Tracking Info */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                      <div className="text-center">
+                        <div className="text-xs font-medium text-gray-700 mb-2">Active Tracking</div>
+                        <div className="grid grid-cols-3 gap-4 text-xs">
+                          <div className="text-center">
+                            <div className="font-bold text-blue-600">{donations.filter(d => d.status === 'in_transit').length}</div>
+                            <div className="text-gray-600">En Route</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-bold text-orange-600">{volunteers.filter(v => v.isAvailable).length}</div>
+                            <div className="text-gray-600">Available</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-bold text-green-600">{donations.filter(d => d.status === 'delivered').length}</div>
+                            <div className="text-gray-600">Delivered</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Click to Open Maps Hint */}
+                  <div className="absolute bottom-4 right-4 z-10">
+                    <div className="bg-blue-500/90 text-white rounded-lg p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="text-xs flex items-center">
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Click to open Google Maps
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
               </div>
             </div>
           </CardContent>
