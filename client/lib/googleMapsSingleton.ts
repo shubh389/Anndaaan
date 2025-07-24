@@ -43,7 +43,7 @@ class GoogleMapsSingleton {
       }
 
       // Check if API key is valid
-      if (!apiKey || apiKey === "YOUR_GOOGLE_MAPS_API_KEY_HERE") {
+      if (!apiKey || apiKey === "YOUR_GOOGLE_MAPS_API_KEY_HERE" || apiKey === "demo_key_disabled") {
         reject(new Error("Google Maps API key not configured"));
         return;
       }
