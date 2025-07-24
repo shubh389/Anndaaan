@@ -268,8 +268,10 @@ const Admin = () => {
           </h1>
           <p className="text-xl text-gray-600 leading-relaxed">
             Manage donations, users, and platform operations with ease. <br />
-            Track food rescue activities in real-time, oversee volunteer efforts, and ensure smooth coordination across all teams. <br />
-            Your control center for driving impact, ensuring transparency, and scaling our mission to feed more people.
+            Track food rescue activities in real-time, oversee volunteer
+            efforts, and ensure smooth coordination across all teams. <br />
+            Your control center for driving impact, ensuring transparency, and
+            scaling our mission to feed more people.
           </p>
         </div>
         {/* Stats Overview */}
@@ -425,7 +427,10 @@ const Admin = () => {
                 All Donations
               </h2>
               <div className="flex space-x-2">
-                <Button onClick={handleExportData} className="border border-gray-300 bg-white hover:bg-gray-100">
+                <Button
+                  onClick={handleExportData}
+                  className="border border-gray-300 bg-white hover:bg-gray-100"
+                >
                   <Download className="mr-2 h-4 w-4" />
                   Export Data
                 </Button>
@@ -636,7 +641,7 @@ const Admin = () => {
                                   }
                                 >
                                   <Ban className="mr-2 h-4 w-4" />
-                        -         Suspend User
+                                  Suspend User
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem
@@ -862,7 +867,9 @@ const Admin = () => {
                         <Button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white">
                           Save Changes
                         </Button>
-                        <Button className="border border-gray-300 bg-white hover:bg-gray-100">Cancel</Button>
+                        <Button className="border border-gray-300 bg-white hover:bg-gray-100">
+                          Cancel
+                        </Button>
                       </div>
                     </form>
                   </CardContent>

@@ -227,24 +227,6 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
 
     // Start loading
     loadGoogleMaps();
-
-    // Create unique callback name
-    const callbackName = `initGoogleMap_${Date.now()}`;
-    (window as any)[callbackName] = initializeMap;
-
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=${callbackName}&libraries=geometry`;
-    script.async = true;
-    script.defer = true;
-    script.setAttribute("data-google-maps-loader", "true");
-    script.setAttribute("data-loading-handled", "true");
-    script.onerror = () => {
-      setMapError("Failed to load Google Maps API. Please check your API key.");
-      setIsLoadingMap(false);
-      console.error("Failed to load Google Maps API");
-    };
-
-    document.head.appendChild(script);
   }, [initializeMap]);
 
   // Get user location
@@ -397,7 +379,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
           content: `
           <div style="max-width: 200px; padding: 8px;">
             <div style="font-weight: bold; color: #1f2937; margin-bottom: 4px;">
-              🚶 ${volunteer.name}
+              ��� ${volunteer.name}
             </div>
             <div style="font-size: 14px; color: #6b7280; margin-bottom: 4px;">
               ⭐ Rating: ${volunteer.rating}/5

@@ -113,130 +113,99 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
           </CardHeader>
           <CardContent>
             <div className="relative w-full h-96 rounded-lg border overflow-hidden">
-              {/* Google Maps Image - Click to open maps.google.com */}
+              {/* Google Maps Interface - Click to open maps.google.com */}
               <div
                 className="relative w-full h-full cursor-pointer group"
                 onClick={() => window.open("https://maps.google.com", "_blank")}
               >
                 <img
                   src="https://cdn.builder.io/api/v1/image/assets%2Fc8e502a783604533b5c478ab95726ead%2Fdf20984a15e54a7e8cc83957fbfad2cb?format=webp&width=800"
-                  alt="Google Maps - Click to Open"
+                  alt="Google Maps"
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />
 
-                {/* Overlay with stats */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors">
-                  {/* Header */}
-                  <div className="absolute top-4 left-4 right-4 z-10">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                      <div className="flex items-center justify-between">
-                        <h3 className="font-semibold text-gray-900">
-                          Delhi NCR Food Network
-                        </h3>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            window.open("https://maps.google.com", "_blank");
-                          }}
-                        >
-                          <ExternalLink className="h-3 w-3 mr-1" />
-                          Open Google Maps
-                        </Button>
+                {/* Live Tracking Overlay */}
+                <div className="absolute inset-0 pointer-events-none">
+                  {/* Top Right - Live Status */}
+                  <div className="absolute top-4 right-4 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-green-200">
+                      <div className="flex items-center space-x-2">
+                        <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                        <span className="text-sm font-medium text-green-700">
+                          Live Tracking
+                        </span>
                       </div>
-                      <p className="text-sm text-gray-600 mt-1">
-                        🗺️ Click anywhere on this map image to open Google Maps
-                      </p>
+                      <div className="text-xs text-gray-600 mt-1">
+                        Updated: {new Date().toLocaleTimeString()}
+                      </div>
                     </div>
                   </div>
 
-                  {/* Center Stats */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-full max-w-md mx-4">
-                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-                        <div className="text-center mb-4">
-                          <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-2" />
-                          <h4 className="font-semibold text-gray-900">
-                            Live Tracking Overview
-                          </h4>
-                          <p className="text-sm text-gray-600">
-                            Food Donation Network Status
-                          </p>
-                        </div>
+                  {/* Top Left - Quick Actions */}
+                  <div className="absolute top-4 left-4 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                      <div className="text-xs font-medium text-gray-700 mb-2">
+                        Quick Actions
+                      </div>
+                      <div className="flex flex-col space-y-1">
+                        <button className="pointer-events-auto text-xs text-blue-600 hover:text-blue-800 text-left">
+                          🔍 Find Donation
+                        </button>
+                        <button className="pointer-events-auto text-xs text-orange-600 hover:text-orange-800 text-left">
+                          📍 Track Route
+                        </button>
+                        <button className="pointer-events-auto text-xs text-green-600 hover:text-green-800 text-left">
+                          👥 Contact Volunteer
+                        </button>
+                      </div>
+                    </div>
+                  </div>
 
-                        <div className="grid grid-cols-2 gap-4 text-center">
-                          <div className="bg-yellow-50 rounded-lg p-3">
-                            <div className="text-2xl font-bold text-yellow-700">
-                              {
-                                donations.filter((d) => d.status === "pending")
-                                  .length
-                              }
-                            </div>
-                            <div className="text-xs text-yellow-600">
-                              Pending
-                            </div>
-                          </div>
-                          <div className="bg-blue-50 rounded-lg p-3">
-                            <div className="text-2xl font-bold text-blue-700">
-                              {
-                                donations.filter((d) => d.status === "assigned")
-                                  .length
-                              }
-                            </div>
-                            <div className="text-xs text-blue-600">
-                              Assigned
-                            </div>
-                          </div>
-                          <div className="bg-orange-50 rounded-lg p-3">
-                            <div className="text-2xl font-bold text-orange-700">
+                  {/* Bottom Center - Active Tracking Info */}
+                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                      <div className="text-center">
+                        <div className="text-xs font-medium text-gray-700 mb-2">
+                          Active Tracking
+                        </div>
+                        <div className="grid grid-cols-3 gap-4 text-xs">
+                          <div className="text-center">
+                            <div className="font-bold text-blue-600">
                               {
                                 donations.filter(
                                   (d) => d.status === "in_transit",
                                 ).length
                               }
                             </div>
-                            <div className="text-xs text-orange-600">
-                              In Transit
-                            </div>
+                            <div className="text-gray-600">En Route</div>
                           </div>
-                          <div className="bg-green-50 rounded-lg p-3">
-                            <div className="text-2xl font-bold text-green-700">
+                          <div className="text-center">
+                            <div className="font-bold text-orange-600">
+                              {volunteers.filter((v) => v.isAvailable).length}
+                            </div>
+                            <div className="text-gray-600">Available</div>
+                          </div>
+                          <div className="text-center">
+                            <div className="font-bold text-green-600">
                               {
                                 donations.filter(
                                   (d) => d.status === "delivered",
                                 ).length
                               }
                             </div>
-                            <div className="text-xs text-green-600">
-                              Delivered
-                            </div>
+                            <div className="text-gray-600">Delivered</div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
 
-                  {/* Bottom Legend */}
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                      <div className="flex flex-wrap gap-4 text-xs">
-                        <div className="flex items-center">
-                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1"></div>
-                          <span>Pending Pickup</span>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-1"></div>
-                          <span>Assigned</span>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-1"></div>
-                          <span>In Transit</span>
-                        </div>
-                        <div className="flex items-center">
-                          <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
-                          <span>Delivered</span>
-                        </div>
+                  {/* Click to Open Maps Hint */}
+                  <div className="absolute bottom-4 right-4 z-10">
+                    <div className="bg-blue-500/90 text-white rounded-lg p-2 shadow-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="text-xs flex items-center">
+                        <ExternalLink className="h-3 w-3 mr-1" />
+                        Click to open Google Maps
                       </div>
                     </div>
                   </div>
