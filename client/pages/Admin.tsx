@@ -635,8 +635,8 @@ const Admin = () => {
                                     handleUserAction("suspend", user.id)
                                   }
                                 >
-                                  <Ban className="mr-2 h-4 w-4" />
-                        -         Suspend User
+                                  <Ban className="mr-2 h-4 w-4 text-gray-600" />
+                                  Suspend User
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
                                 <DropdownMenuItem
