@@ -113,19 +113,13 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
           </CardHeader>
           <CardContent>
             <div className="relative w-full h-96 rounded-lg border overflow-hidden">
-              {/* Google Maps Image - Click to open maps.google.com */}
+              {/* Google Maps Interface - Click to open maps.google.com */}
               <div
-                className="relative w-full h-full cursor-pointer group"
+                className="relative w-full h-full cursor-pointer group bg-gradient-to-br from-blue-50 to-green-50"
                 onClick={() => window.open("https://maps.google.com", "_blank")}
               >
-                <img
-                  src="https://cdn.builder.io/api/v1/image/assets%2Fc8e502a783604533b5c478ab95726ead%2Fdf20984a15e54a7e8cc83957fbfad2cb?format=webp&width=800"
-                  alt="Google Maps - Click to Open"
-                  className="w-full h-full object-cover transition-transform group-hover:scale-105"
-                />
-
                 {/* Overlay with stats */}
-                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors">
+                <div className="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors">
                   {/* Header */}
                   <div className="absolute top-4 left-4 right-4 z-10">
                     <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm">
