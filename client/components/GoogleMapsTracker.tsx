@@ -56,7 +56,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
   } | null>(null);
 
   // Google Maps API Key - In production, use environment variable
-  const GOOGLE_MAPS_API_KEY = "AIzaSyBlrIfMHqq-Pz97wPr1XRGJkxuGBbTmKPs"; // Your actual Google Maps API key
+  const GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY_HERE"; // Replace with your Google Maps API key
 
   // Get global maps singleton instance
   const mapsSingleton = GoogleMapsSingleton.getInstance();
