@@ -182,8 +182,6 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
   useEffect(() => {
     const loadGoogleMaps = async () => {
       try {
-
-
         // Use singleton to load Google Maps (prevents all duplicates)
         await mapsSingleton.loadGoogleMaps(GOOGLE_MAPS_API_KEY);
 

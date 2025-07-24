@@ -131,7 +131,9 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                     <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm border border-green-200">
                       <div className="flex items-center space-x-2">
                         <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                        <span className="text-sm font-medium text-green-700">Live Tracking</span>
+                        <span className="text-sm font-medium text-green-700">
+                          Live Tracking
+                        </span>
                       </div>
                       <div className="text-xs text-gray-600 mt-1">
                         Updated: {new Date().toLocaleTimeString()}
@@ -142,7 +144,9 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                   {/* Top Left - Quick Actions */}
                   <div className="absolute top-4 left-4 z-10">
                     <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                      <div className="text-xs font-medium text-gray-700 mb-2">Quick Actions</div>
+                      <div className="text-xs font-medium text-gray-700 mb-2">
+                        Quick Actions
+                      </div>
                       <div className="flex flex-col space-y-1">
                         <button className="pointer-events-auto text-xs text-blue-600 hover:text-blue-800 text-left">
                           🔍 Find Donation
@@ -161,18 +165,34 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                   <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 z-10">
                     <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
                       <div className="text-center">
-                        <div className="text-xs font-medium text-gray-700 mb-2">Active Tracking</div>
+                        <div className="text-xs font-medium text-gray-700 mb-2">
+                          Active Tracking
+                        </div>
                         <div className="grid grid-cols-3 gap-4 text-xs">
                           <div className="text-center">
-                            <div className="font-bold text-blue-600">{donations.filter(d => d.status === 'in_transit').length}</div>
+                            <div className="font-bold text-blue-600">
+                              {
+                                donations.filter(
+                                  (d) => d.status === "in_transit",
+                                ).length
+                              }
+                            </div>
                             <div className="text-gray-600">En Route</div>
                           </div>
                           <div className="text-center">
-                            <div className="font-bold text-orange-600">{volunteers.filter(v => v.isAvailable).length}</div>
+                            <div className="font-bold text-orange-600">
+                              {volunteers.filter((v) => v.isAvailable).length}
+                            </div>
                             <div className="text-gray-600">Available</div>
                           </div>
                           <div className="text-center">
-                            <div className="font-bold text-green-600">{donations.filter(d => d.status === 'delivered').length}</div>
+                            <div className="font-bold text-green-600">
+                              {
+                                donations.filter(
+                                  (d) => d.status === "delivered",
+                                ).length
+                              }
+                            </div>
                             <div className="text-gray-600">Delivered</div>
                           </div>
                         </div>
@@ -190,7 +210,6 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                     </div>
                   </div>
                 </div>
-
               </div>
             </div>
           </CardContent>
