@@ -519,7 +519,7 @@ const Admin = () => {
                                   View Details
                                 </DropdownMenuItem>
                                 <DropdownMenuItem>
-                                  <Edit className="mr-2 h-4 w-4" />
+                                  <Edit className="mr-2 h-4 w-4 text-gray-600" />
                                   Edit
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
