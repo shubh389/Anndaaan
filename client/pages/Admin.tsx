@@ -645,7 +645,7 @@ const Admin = () => {
                                     handleUserAction("delete", user.id)
                                   }
                                 >
-                                  <Trash2 className="mr-2 h-4 w-4" />
+                                  <Trash2 className="mr-2 h-4 w-4 text-gray-600" />
                                   Delete User
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
