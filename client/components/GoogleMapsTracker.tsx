@@ -55,8 +55,8 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
     lng: number;
   } | null>(null);
 
-  // Google Maps API Key - In production, use environment variable
-  const GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY_HERE"; // Replace with your Google Maps API key
+  // Google Maps API Key - Using environment variable or demo key
+  const GOOGLE_MAPS_API_KEY = import.meta.env.VITE_GOOGLE_MAPS_API_KEY || "demo_key_disabled";
 
   // Get global maps singleton instance
   const mapsSingleton = GoogleMapsSingleton.getInstance();
@@ -182,6 +182,13 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
   useEffect(() => {
     const loadGoogleMaps = async () => {
       try {
+        // Check if Google Maps is disabled (demo mode)
+        if (GOOGLE_MAPS_API_KEY === "demo_key_disabled") {
+          setMapError("Google Maps API key not configured. Using fallback map.");
+          setIsLoadingMap(false);
+          return;
+        }
+
         // Use singleton to load Google Maps (prevents all duplicates)
         await mapsSingleton.loadGoogleMaps(GOOGLE_MAPS_API_KEY);
 
@@ -227,25 +234,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
 
     // Start loading
     loadGoogleMaps();
-
-    // Create unique callback name
-    const callbackName = `initGoogleMap_${Date.now()}`;
-    (window as any)[callbackName] = initializeMap;
-
-    const script = document.createElement("script");
-    script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=${callbackName}&libraries=geometry`;
-    script.async = true;
-    script.defer = true;
-    script.setAttribute("data-google-maps-loader", "true");
-    script.setAttribute("data-loading-handled", "true");
-    script.onerror = () => {
-      setMapError("Failed to load Google Maps API. Please check your API key.");
-      setIsLoadingMap(false);
-      console.error("Failed to load Google Maps API");
-    };
-
-    document.head.appendChild(script);
-  }, [initializeMap]);
+  }, [initializeMap, GOOGLE_MAPS_API_KEY]);
 
   // Get user location
   useEffect(() => {
