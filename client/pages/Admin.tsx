@@ -691,27 +691,27 @@ const Admin = () => {
 
                       <div className="space-y-3">
                         <div className="flex items-center space-x-2">
-                          <Mail className="h-4 w-4 text-gray-400" />
+                          <Mail className="h-4 w-4 text-gray-600" />
                           <span className="text-sm">{selectedUser.email}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Phone className="h-4 w-4 text-gray-400" />
+                          <Phone className="h-4 w-4 text-gray-600" />
                           <span className="text-sm">{selectedUser.phone}</span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <MapPin className="h-4 w-4 text-gray-400" />
+                          <MapPin className="h-4 w-4 text-gray-600" />
                           <span className="text-sm">
                             {selectedUser.location}
                           </span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Calendar className="h-4 w-4 text-gray-400" />
+                          <Calendar className="h-4 w-4 text-gray-600" />
                           <span className="text-sm">
                             Joined {selectedUser.joinDate}
                           </span>
                         </div>
                         <div className="flex items-center space-x-2">
-                          <Shield className="h-4 w-4 text-gray-400" />
+                          <Shield className="h-4 w-4 text-gray-600" />
                           <span className="text-sm capitalize">
                             {selectedUser.role}
                           </span>
