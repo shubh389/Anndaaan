@@ -917,15 +917,15 @@ const Admin = () => {
                   </CardHeader>
                   <CardContent className="space-y-3">
                     <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                      <Shield className="mr-2 h-4 w-4" />
+                      <Shield className="mr-2 h-4 w-4 text-gray-600" />
                       Change Password
                     </Button>
                     <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                      <Activity className="mr-2 h-4 w-4" />
+                      <Activity className="mr-2 h-4 w-4 text-gray-600" />
                       Enable 2FA
                     </Button>
                     <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                      <FileText className="mr-2 h-4 w-4" />
+                      <FileText className="mr-2 h-4 w-4 text-gray-600" />
                       Activity Log
                     </Button>
                   </CardContent>
