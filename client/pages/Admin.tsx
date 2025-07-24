@@ -664,7 +664,7 @@ const Admin = () => {
                   <Card>
                     <CardHeader>
                       <CardTitle className="flex items-center">
-                        <User className="mr-2 h-5 w-5" />
+                        <User className="mr-2 h-5 w-5 text-gray-600" />
                         User Profile
                       </CardTitle>
                     </CardHeader>
