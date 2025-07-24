@@ -229,7 +229,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
 
     // Start loading
     loadGoogleMaps();
-  }, [initializeMap, GOOGLE_MAPS_API_KEY]);
+  }, [initializeMap]);
 
   // Get user location
   useEffect(() => {
@@ -381,7 +381,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
           content: `
           <div style="max-width: 200px; padding: 8px;">
             <div style="font-weight: bold; color: #1f2937; margin-bottom: 4px;">
-              🚶 ${volunteer.name}
+              ��� ${volunteer.name}
             </div>
             <div style="font-size: 14px; color: #6b7280; margin-bottom: 4px;">
               ⭐ Rating: ${volunteer.rating}/5
