@@ -901,7 +901,7 @@ const Admin = () => {
                           key={index}
                           className="flex items-center space-x-2"
                         >
-                          <Shield className="h-4 w-4 text-green-600" />
+                          <Shield className="h-4 w-4 text-gray-600" />
                           <span className="text-sm capitalize">
                             {permission.replace("_", " ")}
                           </span>
