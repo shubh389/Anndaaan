@@ -112,113 +112,132 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
             </div>
           </CardHeader>
           <CardContent>
-            <div className="relative w-full h-96 bg-gradient-to-br from-blue-50 to-indigo-100 rounded-lg border overflow-hidden">
-              {/* Header */}
-              <div className="absolute top-4 left-4 right-4 z-10">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-4 shadow-sm">
-                  <div className="flex items-center justify-between">
-                    <h3 className="font-semibold text-gray-900">
-                      Live Tracking Overview
-                    </h3>
-                    <Button
-                      variant="outline"
-                      size="sm"
-                      onClick={() =>
-                        window.open(
-                          "https://console.cloud.google.com/google/maps-apis",
-                          "_blank",
-                        )
-                      }
-                    >
-                      <ExternalLink className="h-3 w-3 mr-1" />
-                      Get Maps API
-                    </Button>
-                  </div>
-                  <p className="text-sm text-gray-600 mt-1">
-                    Configure Google Maps API for full interactive map
-                    experience
-                  </p>
-                </div>
-              </div>
+            <div className="relative w-full h-96 rounded-lg border overflow-hidden">
+              {/* Google Maps Image - Click to open maps.google.com */}
+              <div
+                className="relative w-full h-full cursor-pointer group"
+                onClick={() => window.open("https://maps.google.com", "_blank")}
+              >
+                <img
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fc8e502a783604533b5c478ab95726ead%2Fdf20984a15e54a7e8cc83957fbfad2cb?format=webp&width=800"
+                  alt="Google Maps - Click to Open"
+                  className="w-full h-full object-cover transition-transform group-hover:scale-105"
+                />
 
-              {/* Map Content Area */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-full max-w-md mx-4">
-                  {/* Geographic Overview */}
-                  <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 shadow-lg">
-                    <div className="text-center mb-4">
-                      <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-2" />
-                      <h4 className="font-semibold text-gray-900">
-                        Delhi NCR Region
-                      </h4>
-                      <p className="text-sm text-gray-600">
-                        Food Donation Network
+                {/* Overlay with stats */}
+                <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors">
+                  {/* Header */}
+                  <div className="absolute top-4 left-4 right-4 z-10">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-4 shadow-sm">
+                      <div className="flex items-center justify-between">
+                        <h3 className="font-semibold text-gray-900">
+                          Delhi NCR Food Network
+                        </h3>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            window.open("https://maps.google.com", "_blank");
+                          }}
+                        >
+                          <ExternalLink className="h-3 w-3 mr-1" />
+                          Open Google Maps
+                        </Button>
+                      </div>
+                      <p className="text-sm text-gray-600 mt-1">
+                        🗺️ Click anywhere on this map image to open Google Maps
                       </p>
                     </div>
+                  </div>
 
-                    <div className="grid grid-cols-2 gap-4 text-center">
-                      <div className="bg-yellow-50 rounded-lg p-3">
-                        <div className="text-2xl font-bold text-yellow-700">
-                          {
-                            donations.filter((d) => d.status === "pending")
-                              .length
-                          }
+                  {/* Center Stats */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-full max-w-md mx-4">
+                      <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg">
+                        <div className="text-center mb-4">
+                          <MapPin className="h-12 w-12 text-blue-600 mx-auto mb-2" />
+                          <h4 className="font-semibold text-gray-900">
+                            Live Tracking Overview
+                          </h4>
+                          <p className="text-sm text-gray-600">
+                            Food Donation Network Status
+                          </p>
                         </div>
-                        <div className="text-xs text-yellow-600">Pending</div>
-                      </div>
-                      <div className="bg-blue-50 rounded-lg p-3">
-                        <div className="text-2xl font-bold text-blue-700">
-                          {
-                            donations.filter((d) => d.status === "assigned")
-                              .length
-                          }
+
+                        <div className="grid grid-cols-2 gap-4 text-center">
+                          <div className="bg-yellow-50 rounded-lg p-3">
+                            <div className="text-2xl font-bold text-yellow-700">
+                              {
+                                donations.filter((d) => d.status === "pending")
+                                  .length
+                              }
+                            </div>
+                            <div className="text-xs text-yellow-600">
+                              Pending
+                            </div>
+                          </div>
+                          <div className="bg-blue-50 rounded-lg p-3">
+                            <div className="text-2xl font-bold text-blue-700">
+                              {
+                                donations.filter((d) => d.status === "assigned")
+                                  .length
+                              }
+                            </div>
+                            <div className="text-xs text-blue-600">
+                              Assigned
+                            </div>
+                          </div>
+                          <div className="bg-orange-50 rounded-lg p-3">
+                            <div className="text-2xl font-bold text-orange-700">
+                              {
+                                donations.filter(
+                                  (d) => d.status === "in_transit",
+                                ).length
+                              }
+                            </div>
+                            <div className="text-xs text-orange-600">
+                              In Transit
+                            </div>
+                          </div>
+                          <div className="bg-green-50 rounded-lg p-3">
+                            <div className="text-2xl font-bold text-green-700">
+                              {
+                                donations.filter(
+                                  (d) => d.status === "delivered",
+                                ).length
+                              }
+                            </div>
+                            <div className="text-xs text-green-600">
+                              Delivered
+                            </div>
+                          </div>
                         </div>
-                        <div className="text-xs text-blue-600">Assigned</div>
-                      </div>
-                      <div className="bg-orange-50 rounded-lg p-3">
-                        <div className="text-2xl font-bold text-orange-700">
-                          {
-                            donations.filter((d) => d.status === "in_transit")
-                              .length
-                          }
-                        </div>
-                        <div className="text-xs text-orange-600">
-                          In Transit
-                        </div>
-                      </div>
-                      <div className="bg-green-50 rounded-lg p-3">
-                        <div className="text-2xl font-bold text-green-700">
-                          {
-                            donations.filter((d) => d.status === "delivered")
-                              .length
-                          }
-                        </div>
-                        <div className="text-xs text-green-600">Delivered</div>
                       </div>
                     </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Bottom Info */}
-              <div className="absolute bottom-4 left-4 right-4">
-                <div className="bg-white/90 backdrop-blur-sm rounded-lg p-3 shadow-sm">
-                  <div className="flex flex-wrap gap-4 text-xs">
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1"></div>
-                      <span>Pending Pickup</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-blue-500 rounded-full mr-1"></div>
-                      <span>Assigned</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-orange-500 rounded-full mr-1"></div>
-                      <span>In Transit</span>
-                    </div>
-                    <div className="flex items-center">
-                      <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
-                      <span>Delivered</span>
+                  {/* Bottom Legend */}
+                  <div className="absolute bottom-4 left-4 right-4">
+                    <div className="bg-white/95 backdrop-blur-sm rounded-lg p-3 shadow-sm">
+                      <div className="flex flex-wrap gap-4 text-xs">
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-yellow-500 rounded-full mr-1"></div>
+                          <span>Pending Pickup</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-blue-500 rounded-full mr-1"></div>
+                          <span>Assigned</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-orange-500 rounded-full mr-1"></div>
+                          <span>In Transit</span>
+                        </div>
+                        <div className="flex items-center">
+                          <div className="w-2 h-2 bg-green-500 rounded-full mr-1"></div>
+                          <span>Delivered</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
