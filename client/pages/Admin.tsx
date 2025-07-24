@@ -994,19 +994,19 @@ const Admin = () => {
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                    <Download className="mr-2 h-4 w-4 text-gray-600" />
+                    <Download className="mr-2 h-4 w-4" />
                     Export All Data
                   </Button>
                   <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                    <Download className="mr-2 h-4 w-4 text-gray-600" />
+                    <Download className="mr-2 h-4 w-4" />
                     Export User Data
                   </Button>
                   <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                    <Download className="mr-2 h-4 w-4 text-gray-600" />
+                    <Download className="mr-2 h-4 w-4" />
                     Export Donation Records
                   </Button>
                   <Button className="w-full justify-start border border-gray-300 bg-white hover:bg-gray-100">
-                    <Building className="mr-2 h-4 w-4 text-gray-600" />
+                    <Building className="mr-2 h-4 w-4" />
                     Generate Reports
                   </Button>
                 </CardContent>
