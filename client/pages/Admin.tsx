@@ -627,7 +627,7 @@ const Admin = () => {
                                     handleUserAction("edit", user.id)
                                   }
                                 >
-                                  <Edit className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Edit className="mr-2 h-4 w-4" />
                                   Edit Profile
                                 </DropdownMenuItem>
                                 <DropdownMenuItem
@@ -635,7 +635,7 @@ const Admin = () => {
                                     handleUserAction("suspend", user.id)
                                   }
                                 >
-                                  <Ban className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Ban className="mr-2 h-4 w-4" />
                                   Suspend User
                                 </DropdownMenuItem>
                                 <DropdownMenuSeparator />
@@ -645,7 +645,7 @@ const Admin = () => {
                                     handleUserAction("delete", user.id)
                                   }
                                 >
-                                  <Trash2 className="mr-2 h-4 w-4 text-gray-600" />
+                                  <Trash2 className="mr-2 h-4 w-4" />
                                   Delete User
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
