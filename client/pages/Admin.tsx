@@ -426,7 +426,7 @@ const Admin = () => {
               </h2>
               <div className="flex space-x-2">
                 <Button onClick={handleExportData} className="border border-gray-300 bg-white hover:bg-gray-100">
-                  <Download className="mr-2 h-4 w-4" />
+                  <Download className="mr-2 h-4 w-4 text-gray-600" />
                   Export Data
                 </Button>
                 <Select>
