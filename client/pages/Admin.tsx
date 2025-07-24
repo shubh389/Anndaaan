@@ -310,7 +310,7 @@ const Admin = () => {
             <CardContent className="p-6">
               <div className="flex items-center">
                 <div className="bg-orange-100 rounded-full p-3 mr-4">
-                  <TrendingUp className="h-6 w-6 text-orange-600" />
+                  <TrendingUp className="h-6 w-6 text-gray-600" />
                 </div>
                 <div>
                   <p className="text-sm text-gray-600">Success Rate</p>
