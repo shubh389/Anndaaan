@@ -119,7 +119,7 @@ const FallbackMap: React.FC<FallbackMapProps> = ({
                 onClick={() => window.open("https://maps.google.com", "_blank")}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1624555130581-1d9cca783bc0?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://cdn.builder.io/api/v1/image/assets%2Fc8e502a783604533b5c478ab95726ead%2Fdf20984a15e54a7e8cc83957fbfad2cb?format=webp&width=800"
                   alt="Google Maps - Click to Open"
                   className="w-full h-full object-cover transition-transform group-hover:scale-105"
                 />
