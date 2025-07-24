@@ -182,12 +182,7 @@ const GoogleMapsTracker: React.FC<GoogleMapsTrackerProps> = ({
   useEffect(() => {
     const loadGoogleMaps = async () => {
       try {
-        // Check if Google Maps is disabled (demo mode)
-        if (GOOGLE_MAPS_API_KEY === "demo_key_disabled") {
-          setMapError("Google Maps API key not configured. Using fallback map.");
-          setIsLoadingMap(false);
-          return;
-        }
+
 
         // Use singleton to load Google Maps (prevents all duplicates)
         await mapsSingleton.loadGoogleMaps(GOOGLE_MAPS_API_KEY);
