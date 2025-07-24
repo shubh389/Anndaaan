@@ -612,7 +612,7 @@ const Admin = () => {
                               className="border border-gray-300 bg-white hover:bg-gray-100 px-3 py-1 text-sm"
                               onClick={() => setSelectedUser(user)}
                             >
-                              <Eye className="h-4 w-4 mr-1 text-gray-600" />
+                              <Eye className="h-4 w-4 mr-1" />
                               View
                             </Button>
                             <DropdownMenu>
